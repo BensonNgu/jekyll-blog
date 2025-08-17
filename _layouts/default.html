@@ -1,0 +1,40 @@
+<!-- _layouts/default.html -->
+<!doctype html>
+<html lang="en" class="">
+
+<head>
+     {% include head.html %}
+     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+</head>
+
+<body class="page">
+
+     <!-- Simple top bar -->
+     <header class="nav">
+          <a class="nav__home" href="{{ '/' | relative_url }}">
+               <img src="{{ '/assets/img/blog-logo.png' | relative_url }}" class="nav__logo" alt="Benson's Blog" id="navLogo">
+          </a>
+     </header>
+
+     <main class="container">
+          {{ content }}
+     </main>
+
+     {% include footer.html %}
+
+     <script>
+          // Optional: auto-switch dark assets if user OS prefers dark
+          const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const footerLogo = document.getElementById('footerLogo');
+          const footerMail = document.getElementById('footerMail');
+          const navLogo = document.getElementById('navLogo');
+          if (prefersDark) {
+               if (footerLogo) footerLogo.src = "{{ '/assets/img/logo-dark.png' | relative_url }}";
+               if (footerMail) footerMail.src = "{{ '/assets/img/mail-dark.png' | relative_url }}";
+               if (navLogo) navLogo.src = "{{ '/assets/img/blog-logo-dark.png' | relative_url }}";
+               document.documentElement.classList.add('dark');
+          }
+     </script>
+</body>
+
+</html>

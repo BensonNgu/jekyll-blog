@@ -1,0 +1,81 @@
+/* ==== Post Page ==== */
+.post__header {
+     margin-bottom: 1rem;
+     text-align: left;
+}
+
+.post__title {
+     font-family: var(--font-ovo);
+     font-size: clamp(2rem, 4vw, 3rem);
+     margin: .25rem 0;
+}
+
+.post__metas {
+     display: flex;
+     align-items: center;
+     flex-wrap: wrap;
+     /* wraps nicely on small screens */
+     color: var(--color-card-desc);
+     gap: 0;
+     /* we’ll create our own separator */
+}
+
+.post__meta {
+     margin: 0;
+     /* override your previous top margin */
+     color: inherit;
+     font-size: .95rem;
+}
+
+/* Add a dot between items, but not before the first */
+.post__meta+.post__meta::before {
+     content: "•";
+     opacity: .6;
+     margin: 0 .6rem;
+}
+
+
+.post__cover {
+     width: 100%;
+     height: auto;
+     border-radius: 12px;
+     margin: 1rem 0 1.25rem;
+}
+
+.post__content img {
+     max-width: 100%;
+     height: auto;
+     border-radius: 8px;
+}
+
+.post__content p {
+     margin: 1rem 0;
+}
+
+
+/* Back to home page button */
+
+.back-link {
+     display: inline-block;
+     margin: .25rem 0 .5rem;
+     background: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+     .back-link {
+          background: #1b0b2c;
+          border-color: #ffffff80;
+     }
+}
+
+#scroll-indicator {
+     position: fixed;
+     top: 0;
+     left: 0;
+     height: 4px;
+     right: 0;
+     background: var(--progress-color);
+     transform-origin: 0 50%;
+     transform: scaleX(0);
+     z-index: 9999;
+}

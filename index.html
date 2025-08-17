@@ -1,0 +1,57 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+  <h1 class="heading-2">Latest Posts</h1>
+  <p class="paragraph">Thoughts on software, projects, and learning — all in one place.</p>
+</section>
+
+<section class="posts-grid">
+  {% for post in paginator.posts %}
+  <article class="card">
+    <a class="card__link" href="{{ post.url | relative_url }}">
+      {% if post.cover_image %}
+      <div class="card__image" style="background-image:url('{{ post.cover_image | relative_url }}')"></div>
+      {% endif %}
+      <div class="card__body">
+        <div class="card__header">
+          <h2 class="card__title">{{ post.title }}</h2>
+          {% if post.tags %}
+          <p class="card__tags">
+            {% for tag in post.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </p>
+          {% endif %}
+        </div>
+        {% if post.description %}
+        <p class="card__desc">{{ post.description }}</p>
+        {% else %}
+        <p class="card__content">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        {% endif %}
+        <span class="card__meta">{{ post.date | date: "%b %d, %Y" }}</span>
+      </div>
+    </a>
+  </article>
+  {% endfor %}
+</section>
+
+<nav class="pagination" aria-label="Pagination">
+  {% if paginator.previous_page %}
+  <a class="nf-btn nf-btn--primary" rel="prev" href="{{ paginator.previous_page_path | relative_url }}"
+                                                                                                      aria-label="Previous page">&#x21e6;</a>
+  {% else %}
+  <span class="nf-btn--disabled" aria-disabled="true">&#x21e6;</span>
+  {% endif %}
+
+  <span class="page-info">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+  {% if paginator.next_page %}
+  <a class="nf-btn nf-btn--primary" rel="next" href="{{ paginator.next_page_path | relative_url }}"
+                                                                                                      aria-label="Next page">&#x21e8;</a>
+  {% else %} 
+  <span class="nf-btn--disabled" aria-disabled="true">&#x21e8;</span>
+  {% endif %}
+</nav>

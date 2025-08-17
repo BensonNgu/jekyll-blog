@@ -1,0 +1,49 @@
+/* 404 page */
+.not-found {
+     min-height: 60vh;
+     display: grid;
+     place-items: center;
+     padding: 3rem 10%;
+     text-align: center;
+}
+
+.not-found__inner {
+     width: min(760px, 100%);
+}
+
+.not-found__code {
+     font-family: var(--font-ovo);
+     font-size: clamp(3rem, 12vw, 6rem);
+     line-height: 1;
+     letter-spacing: .02em;
+     margin: 0 0 .5rem;
+     color: var(--color-card-title);
+}
+
+.not-found__title {
+     font-family: var(--font-ovo);
+     font-size: clamp(1.5rem, 4.5vw, 2.25rem);
+     margin: 0 0 .5rem;
+}
+
+.not-found__desc {
+     color: var(--color-card-desc);
+     margin: 0 auto 1.5rem;
+     max-width: 60ch;
+}
+
+/* Actions */
+.not-found__actions {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: .75rem;
+     flex-wrap: wrap;
+}
+
+
+
+/* Optional: keep footer from crowding the 404 content */
+.not-found+.footer {
+     margin-top: 2rem;
+}

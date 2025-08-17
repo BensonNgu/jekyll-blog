@@ -1,0 +1,33 @@
+title: "Benson's Blog"
+description: "Notes, projects, and writing"
+url: "https://blog.bensonngu.cc"
+baseurl: ""
+timezone: Asia/Kuala_Lumpur
+theme: minima
+markdown: kramdown
+owner:
+  name: "Benson Ngu"
+  email: "me@bensonngu.cc"
+  url: "https://bensonngu.cc"
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+paginate: 10
+paginate_path: "/page:num/"
+collections:
+  pages:
+    output: true
+defaults:
+  - scope: {path: ""}
+    values: {layout: default}
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Benson Ngu"
+      permalink: ":title"
+        
+
