@@ -1,14 +1,14 @@
 <!-- _includes/footer.html -->
 <footer class="footer">
      <div class="footer__brand">
-          <a href=" {{site.owner.url | '/'}} ">
+          <a href=" {{site.author.url | '/'}} ">
                <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="Logo" class="footer__logo" id="footerLogo">
           </a>
 
-          <a class="footer__email" href="mailto:work@bensonngu.cc">
+          <a class="footer__email" href="mailto:{{ site.author.email }}">
                <img src="{{ '/assets/img/mail.png' | relative_url }}" alt="Mail icon" class="footer__mail-icon"
                                                                                                                    id="footerMail">
-               <span>work@bensonngu.cc</span>
+               <span>{{ site.author.email }}</span>
           </a>
      </div>
 

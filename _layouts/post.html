@@ -16,13 +16,21 @@ layout: default
                     {{ page.date | date: "%B %d, %Y" }}
                </time>
                {% endif %}
+
+               {% if page.tags %}
+               <p class="post__tags">
+                    {% for tag in page.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+               </p>
+               {% endif %}
           </div>
 
-          <!-- {% if page.cover_image %}
+          {% if page.cover_image %}
           <img class="post__cover" src="{{ page.cover_image | relative_url }}" alt="">
-          {% endif %} -->
+          {% endif %}
      </header>
-
+     <hr>
      <div class="post__content">
           {{ content }}
      </div>

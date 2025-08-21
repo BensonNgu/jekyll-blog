@@ -4,7 +4,8 @@
 {% seo %}
 
 <!-- Google Fonts: Outfit + Ovo (same as portfolio) -->
-<link href="https://fonts.googleapis.com/css2?family=Ovo&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ovo&family=Outfit:wght@400;500;600;700&display=swap"
+                                                                                                    rel="stylesheet">
 
 <!-- Main CSS -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
@@ -13,7 +14,73 @@
 <link rel="stylesheet" href="{{ '/assets/css/footer.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/contact.css' | relative_url }}">
 
-<!-- Favicon (optional) -->
+<!-- Favicon -->
 <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}">
 <script type="module" src="{{ '/assets/script/animation.js' | relative_url }}"></script>
 <script type="module" src="{{ '/assets/script/contact.js' | relative_url }}"></script>
+
+<!-- RSS (nice for SEO + subscribers) -->
+<link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}"
+                                                                                                    href="{{ '/feed.xml' | absolute_url }}">
+
+{% if paginator and paginator.page > 1 %}
+<meta name="robots" content="noindex,follow">
+{% endif %}
+{% if page.noindex %}
+<meta name="robots" content="noindex,follow">
+{% endif %}
+
+{% if paginator %}
+{% if paginator.previous_page %}
+<link rel="prev" href="{{ paginator.previous_page_path | absolute_url }}">
+{% endif %}
+{% if paginator.next_page %}
+<link rel="next" href="{{ paginator.next_page_path | absolute_url }}">
+{% endif %}
+{% endif %}
+
+{% if page.tags %}
+{% for tag in page.tags %}
+<meta property="article:tag" content="{{ tag | escape }}">
+{% endfor %}
+{% endif %}
+
+<!-- Structured data: BlogPosting on posts -->
+{% if page.layout == 'post' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ (page.description | default: page.excerpt | strip_html | strip_newlines) | jsonify }},
+  "image": {{ (page.cover_image | default: page.image | default: site.logo | default: '/assets/img/og.png' | absolute_url) | jsonify }},
+  "author": { "@type": "Person", "name": {{ (page.author | default: site.author.name) | jsonify }} },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "url": "{{ page.url | absolute_url }}",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ page.url | absolute_url }}" },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.title | jsonify }},
+    "logo": { "@type": "ImageObject", "url": "{{ site.logo | default: '/assets/img/logo-social.png' | absolute_url }}" }
+  }
+}
+</script>
+{% endif %}
+
+<!-- Structured data: WebSite on the homepage -->
+{% if page.url == '/' %}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name": {{ site.title | jsonify }},
+  "url": "{{ site.url | append: site.baseurl }}",
+  "inLanguage": "{{ site.lang | default: 'en' }}"
+  {% comment %}
+    If you add a site search page later, you can enable this:
+    ,"potentialAction":{"@type":"SearchAction","target":"{{ site.url | append: site.baseurl }}/search/?q={search_term_string}","query-input":"required name=search_term_string"}
+  {% endcomment %}
+}
+</script>
+{% endif %}

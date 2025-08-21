@@ -1,9 +1,19 @@
 /* assets/css/main.css */
+@font-face {
+     font-family: "Departure Mono";
+     src: url("/assets/fonts/departure-mono/DepartureMono-Regular.woff2") format("woff2");
+     font-weight: 400;
+     font-style: normal;
+     font-display: swap;
+}
 
 /* ==== Tokens (from your globals.css) ==== */
 :root {
      --color-bg: #fff;
      --color-text: #000;
+     --color-text-light: #5f5f5f;
+
+     --color-muted: #a2b4c7;
 
      --color-navbar: #fff;
      --shadow-navbar: 4px 4px 0 #000;
@@ -20,6 +30,8 @@
      --color-bg-text-input: #fff;
      --color-border-text-input: #99a1af;
 
+     --color-divider: var(--color-border-text-input);
+
      --color-toast-bg: var(--color-bg-sideMenu);
      --color-toast-text: var(--color-card-title);
      --color-toast-border: var(--color-border-text-input);
@@ -32,17 +44,26 @@
      --shadow-white: 4px 4px 0#fff;
 
      --color-secodary-btn: #ffffff00;
-     --color-border-secondary-btn:var(--color-border-text-input);
+     --color-border-secondary-btn: var(--color-border-text-input);
      --color-hover-secondary-btn: #2a004a;
 
      --font-outfit: "Outfit", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
      --font-ovo: "Ovo", ui-serif, Georgia, serif;
+     --font-mono: "Departure Mono", "Courier New", monospace;
 
-     --progress-color: #ff0088;
+     --progress-color: #7b2cbf;
+     --color-accent: var(--progress-color);
 
-     --color-warning: #ff0000;
-     --color-success: #00ff00;
-     --color-info: #0000ff;
+     --color-warn: #f7c543;
+     --color-success: #12ca93;
+     --color-info: #118cfd;
+     --color-error: #e95f6a;
+
+     --color-code-bg: #f5f5f5;
+     --color-code-border: #dcdcdc;
+     --color-code-shadow: var(--shadow-black);
+
+     --color-border: #dcdcdc;
 }
 
 /* Auto-dark using OS preference (keeps original color codes) */
@@ -50,6 +71,7 @@
      :root {
           --color-bg: #11001F;
           --color-text: #fff;
+          --color-text-light: #a2b4c7;
 
           --color-navbar: #11001F;
           --shadow-navbar: 4px 4px 0 #fff;
@@ -71,7 +93,14 @@
           --color-toast-border: var(--color-border-text-input);
           --color-toast-shadow: var(--shadow-white);
 
-          --progress-color: #7b2cbf;
+          --color-divider: #2a374e;
+
+          --color-code-bg: #1b0b2c;
+          --color-code-border: #ffffff80;
+          --color-code-shadow: var(--shadow-white);
+
+          --color-inline-code-bg: color-mix(in srgb, var(--color-accent) 20%, transparent);
+          --color-border: #ffffff80;
      }
 }
 
@@ -349,7 +378,9 @@ body.page {
 }
 
 @media (prefers-color-scheme: dark) {
-     .nf-btn, .nf-btn--disabled {
+
+     .nf-btn,
+     .nf-btn--disabled {
           border-color: rgba(255, 255, 255, .6);
      }
 

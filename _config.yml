@@ -3,12 +3,24 @@ description: "Notes, projects, and writing"
 url: "https://blog.bensonngu.cc"
 baseurl: ""
 timezone: Asia/Kuala_Lumpur
+lang: en
+
 theme: minima
 markdown: kramdown
-owner:
+
+author:
   name: "Benson Ngu"
-  email: "me@bensonngu.cc"
+  email: "work@bensonngu.cc"
   url: "https://bensonngu.cc"
+
+logo: "/assets/img/logo-social.png"
+
+social:
+  name: "Benson Ngu"
+  links: 
+    - https://github.com/BensonNgu
+    - https://linkedin.com/in/bensonnguchengjie
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -21,7 +33,9 @@ collections:
     output: true
 defaults:
   - scope: {path: ""}
-    values: {layout: default}
+    values: 
+      layout: default
+      image: "assets/img/og.png"
   - scope:
       path: ""
       type: "posts"
