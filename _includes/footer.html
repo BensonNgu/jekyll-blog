@@ -5,19 +5,25 @@
                <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="Logo" class="footer__logo" id="footerLogo">
           </a>
 
-          <a class="footer__email" href="mailto:me@bensonngu.cc">
+          <a class="footer__email" href="mailto:work@bensonngu.cc">
                <img src="{{ '/assets/img/mail.png' | relative_url }}" alt="Mail icon" class="footer__mail-icon"
                                                                                                                    id="footerMail">
-               <span>me@bensonngu.cc</span>
+               <span>work@bensonngu.cc</span>
           </a>
      </div>
 
      <div class="footer__bottom">
-          <ul class="footer__links">
-               <li><a href="https://github.com/bensonngu" target="_blank" rel="noopener">Github</a></li>
-               <li><a href="https://www.linkedin.com/in/bensonnguchengjie" target="_blank" rel="noopener">LinkedIn</a>
-               </li>
-          </ul>
+          <nav class="footer__links" aria-labelledby="footer-links-title">
+               <h2 id="footer-links-title" class="footer__title">Quick Links</h2>
+               <ul class="footer__list" role="list">
+                    <li><a href="https://github.com/bensonngu" target="_blank" rel="noopener">Github</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="https://www.linkedin.com/in/bensonnguchengjie" target="_blank"
+                                                                                                                             rel="noopener">LinkedIn</a>
+                    </li>
+                    <li><a href="/contact" target="_blank" rel="noopener">Contact Me</a></li>
+               </ul>
+          </nav>
 
           <p class="footer__copy">© 2025 Benson Ngu. All rights reserved.</p>
 

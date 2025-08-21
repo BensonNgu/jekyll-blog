@@ -4,15 +4,21 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+### 🎯 Purpose
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+This website is a personal space where I share my thoughts and reflections on Information Technology (IT). It serves as both a blog and a portfolio — documenting my journey, experiments, and learnings in the tech world.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+---
 
+### 🛠 Tech Stack
 
-[jekyll-organization]: https://github.com/jekyll
+- Jekyll – for static site generation
+
+- Custom CSS Styling – for tailored design and unique visual identity
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+You are free to use, modify, and distribute this project for personal and commercial purposes, provided that proper credit is given to the original author.

@@ -1,7 +1,5 @@
 ---
-layout: page
+layout: contact
 title: Contact Me
-permalink: /contact/ 
+permalink: /contact/
 ---
-
-Contact me via [email](mailto:me@bensonngu.cc)

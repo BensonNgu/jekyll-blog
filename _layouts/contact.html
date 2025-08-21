@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<section class="contact-section" id="contact">
+     <h4 class="heading-4">Connect with me</h4>
+     <h2 class="heading-2">Get in touch</h2>
+     <p class="paragraph">
+          I'd love to hear from you! If you have any question, comments, or feedback, please use the form below.
+     </p>
+
+     <!-- Contact Form (Web3Forms) -->
+     <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Replace this with your real access key -->
+          <input type="hidden" name="access_key" value="ce50eb8c-64f6-4b91-ae64-94769dbc0242" />
+
+          <div class="grid-2">
+               <input class="half-input" type="text" name="name" placeholder="Enter your name" required
+                                                                                                                   aria-label="Your Name" />
+               <input class="half-input" type="email" name="email" placeholder="Enter your email" required
+                                                                                                                   aria-label="Your Email" />
+          </div>
+
+          <textarea class="full-textarea" name="message" rows="6" placeholder="Enter your message" required
+                                                                                                              aria-label="Your Message"></textarea>
+
+          <button class="submit-btn" type="submit" aria-label="Submit contact form button">
+               Submit now <span aria-hidden="true">&#x21e8;</span>
+          </button>
+
+     </form>
+</section>
+
+<!-- Toast -->
+<div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+     <span id="toast-message">Sending…</span>
+     <button id="toast-close" class="toast-close" aria-label="Close">&times;</button>
+</div>
