@@ -27,7 +27,9 @@ layout: default
           </div>
 
           {% if page.cover_image %}
-          <img class="post__cover" src="{{ page.cover_image | relative_url }}" alt="">
+          <div class="post__cover__container">
+               <img class="post__cover" src="{{ page.cover_image | relative_url }}" alt="">
+          </div>
           {% endif %}
      </header>
      <hr>

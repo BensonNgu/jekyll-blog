@@ -16,15 +16,18 @@
      flex-wrap: wrap;
      /* wraps nicely on small screens */
      color: var(--color-card-desc);
-     gap: 0;
+     gap: .25rem .75rem;
      /* we’ll create our own separator */
 }
 
 .post__meta {
+     display: inline-flex;
+     align-items: center;
      margin: 0;
      /* override your previous top margin */
      color: inherit;
      font-size: .95rem;
+     white-space: nowrap;
 }
 
 /* Add a dot between items, but not before the first */
@@ -35,16 +38,40 @@
 }
 
 .post__tags {
-     position: absolute;
-     right: 2rem;
+     display: inline-flex;
      gap: .5rem;
      flex-wrap: wrap;
-     justify-content: flex-end;
+     margin-inline-start: auto;
      max-width: 55%;
 }
 
+@media (max-width: 48rem) {
+     .post__metas {
+          gap: .25rem .5rem;
+     }
+
+     /* put tags on their own line */
+     .post__tags {
+          flex-basis: 100%;
+          margin: .4rem 0 0;
+          margin-inline-start: 0;
+          /* align left */
+          max-width: 100%;
+     }
+
+     /* tighten the dot spacing */
+     .post__meta+.post__meta::before {
+          margin: 0 .4rem;
+     }
+}
+
+.post__cover__container {
+     display: flex;
+     justify-content: center;
+}
+
 .post__cover {
-     width: 100%;
+     max-width: 45rem;
      height: auto;
      border-radius: 12px;
      margin: 1rem 0 1.25rem;
@@ -107,7 +134,7 @@
 }
 
 .post__content a:hover {
-     
+
      opacity: .9;
 }
 
@@ -348,4 +375,149 @@
 .post__content .callout_error {
      border-left: 4px solid var(--color-error);
      background: color-mix(in srgb, var(--color-error) 15%, transparent);
+}
+
+@media (width < 40rem) {
+
+     .post__cover {
+          max-width: 95%;
+     }
+
+     .post__content h1 {
+          font-size: clamp(1.6rem, 3vw + 1rem, 2.75rem);
+     }
+
+     .post__content h2 {
+          font-size: clamp(1.45rem, 2.5vw + 1rem, 2.25rem);
+     }
+
+     .post__content h3 {
+          font-size: clamp(1.35rem, 1.6vw + 1rem, 1.6rem);
+     }
+
+     .post__content h4 {
+          font-size: 1.25rem;
+     }
+
+     .post__content h5 {
+          font-size: 1rem;
+     }
+
+     .post__content h6 {
+          font-size: .95rem;
+     }
+
+     .post__content p {
+          font-size: .8rem;
+     }
+
+     .post__content li {
+          font-size: .8rem;
+     }
+
+     .post__content pre code {
+          font-size: .7rem;
+     }
+
+     .post__content :not(pre)>code {
+          font-size: .7rem;
+     }
+
+     .post__content th {
+          font-size: .85rem;
+     }
+
+     .post__content td {
+          font-size: .75rem;
+     }
+
+     .post__content figcaption {
+          font-size: .75rem;
+     }
+
+     /* Captions after tables/images (paragraph right after) */
+     .post__content table+p,
+     .post__content img+p,
+     .post__content figure+p {
+          font-size: .75rem;
+     }
+
+     .post__content details {
+          font-size: .9rem;
+     }
+
+     .post__content summary {
+          font-size: .8rem;
+     }
+
+}
+
+@media (width <=70rem) {
+     .post__content h1 {
+          font-size: clamp(1.6rem, 3vw + 1rem, 2.75rem);
+     }
+
+     .post__content h2 {
+          font-size: clamp(1.45rem, 2.5vw + 1rem, 2.25rem);
+     }
+
+     .post__content h3 {
+          font-size: clamp(1.35rem, 1.6vw + 1rem, 1.6rem);
+     }
+
+     .post__content h4 {
+          font-size: 1.25rem;
+     }
+
+     .post__content h5 {
+          font-size: 1rem;
+     }
+
+     .post__content h6 {
+          font-size: .95rem;
+     }
+
+     .post__content p {
+          font-size: .8rem;
+     }
+
+     .post__content li {
+          font-size: .8rem;
+     }
+
+     .post__content pre code {
+          font-size: .7rem;
+     }
+
+     .post__content :not(pre)>code {
+          font-size: .7rem;
+     }
+
+     .post__content th {
+          font-size: .85rem;
+     }
+
+     .post__content td {
+          font-size: .75rem;
+     }
+
+     .post__content figcaption {
+          font-size: .75rem;
+     }
+
+     /* Captions after tables/images (paragraph right after) */
+     .post__content table+p,
+     .post__content img+p,
+     .post__content figure+p {
+          font-size: .75rem;
+     }
+
+     .post__content details {
+          font-size: .9rem;
+     }
+
+     .post__content summary {
+          font-size: .8rem;
+     }
+
 }
